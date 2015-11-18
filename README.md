@@ -7,7 +7,7 @@ Gel Filtration Chromatography R Project
 > be located <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=gel%20filtration%20chromatography">
 > with a Google search </a>.
 
-This script, located at GFC.R, does the following:
+This script, located at *GFC.R*, does the following:
 * Import the raw data exported from the chromatography system (in CSV format)
 * Calculate the peak maxima for the calibration data
 * Find a correlation between the molecular weight of to the observed maximum for each protein
@@ -37,5 +37,18 @@ An R script is used to process the following data files:
 * CytochromeCAlbumin_Full.TXT
 * Protein1_Full.TXT
 
-The data processing script will import the full data, delete duplicate Volume values, and export
+The data processing script, located at *data.R*, will import the full data, delete duplicate Volume values, and export
 a cleaner set of data files that contain values only for Volume (independent) and UV (dependent).
+
+## Clean data
+> The R script data.R was executed on 2015-Nov-18 using R version 3.2.2 on Linux (Ubuntu 14.04.3).
+> The following files were generated:
+> * AprotininAnhydrase_clean.csv
+> * BlueDextran_clean.csv
+> * CytochromeCAlbumin_clean.csv
+> * Protein1_clean.csv
+
+The files listed above contain two variables, "Volume" and "UV", which are used for the following calculations.
+There are unique values for "Volume" provided in each of the files.
+
+
