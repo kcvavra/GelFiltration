@@ -17,7 +17,7 @@ ucyto <- cyto[ ! duplicated( cyto[ c("Volume") ] ), c("Volume", "UV")]
 uprotein <- protein[ ! duplicated( cyto[ c("Volume") ] ), c("Volume", "UV")]
 
 # Write data to files
-write.csv(uaprot, file = "Data/AprotininAnhydrase_clean.csv")
-write.csv(ublue, file = "Data/BlueDextran_clean.csv")
-write.csv(ucyto, file = "Data/CytochromeCAlbumin_clean.csv")
-write.csv(uprotein, file = "Data/Protein1_clean.csv")
+write.csv(uaprot, file = "Data/AprotininAnhydrase_clean.csv", row.names = FALSE)
+write.csv(ublue, file = "Data/BlueDextran_clean.csv", row.names = FALSE)
+write.csv(ucyto, file = "Data/CytochromeCAlbumin_clean.csv", row.names = FALSE)
+write.csv(uprotein, file = "Data/Protein1_clean.csv", row.names = FALSE)
