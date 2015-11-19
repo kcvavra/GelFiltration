@@ -67,3 +67,14 @@ Ratio_CytoVol <- CytoVol/BlueVol
 standards <- c("Albumin", "Carbonic Anhydrase", "Cytochrome C", "Aprotinin")
 VeVo <- c(Ratio_Albumin, Ratio_CAVol, Ratio_CytoVol, Ratio_AprotVol)
 MolecularWeights <- c(66, 29, 12.4, 6.5)
+table <- cbind.data.frame(standards, VeVo, MolecularWeights)
+
+print(table)
+# Print table to show molecular weights
+
+q <- ggplot(table, aes(x = VeVo, y = MolecularWeights))
+q <- q + scale_y_continuous(trans= log_trans()) + geom_point(shape = 1) + # use hallow circles
+  geom_smooth(method = lm) # Add linear regression line, default includes 95% confidence region
+print(q)
+
+form <- lm(log10(MolecularWeights) ~ VeVo)
