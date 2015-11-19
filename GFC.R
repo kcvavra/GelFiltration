@@ -77,4 +77,19 @@ q <- q + scale_y_continuous(trans= log_trans()) + geom_point(shape = 1) + # use 
   geom_smooth(method = lm) # Add linear regression line, default includes 95% confidence region
 print(q)
 
-form <- lm(log10(MolecularWeights) ~ VeVo)
+# Create formula for linear regression
+formula <- lm(log10(MolecularWeights) ~ VeVo)
+
+# Calculate the maximum absorbance for the Protein 1 sample. There was drift in the measurement
+# tools at the end of the collection, so we are limiting the maximum search to 10 - 20 mL
+vol5 <- 101 + which.max(protein$UV[101:200])
+ProteinVol <- protein$Volume[vol5]
+print(ProteinVol)
+Ratio_Protein <- ProteinVol/BlueVol
+
+# Use Predict to calculate the estimated molecular weight from the linear fit:
+EstimatedMolecularWeight<- 10 ^ (predict(formula, data.frame(VeVo = c(Ratio_Protein))))
+
+# Rename and print the results.
+names(EstimatedMolecularWeight) = c("Protein 1")
+print(EstimatedMolecularWeight)
