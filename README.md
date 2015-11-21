@@ -51,4 +51,13 @@ a cleaner set of data files that contain values only for Volume (independent) an
 The files listed above contain two variables, "Volume" and "UV", which are used for the following calculations.
 There are unique values for "Volume" provided in each of the files.
 
+## Notes about the math used to calculate this script
+
+The relationship between elution volume and molecular weight is logarithmic.
+Standard calculations measure the linearity of Log~10~(molecular weight) vs. ratio of elution volume
+vs. the void volume.
+Blue dextran is a compound that is so large, there is almost no interaction between dextran and
+the matrix so blue dextran passes straight through.
+The peak volume blue dextran leaves the column is known as the void volume (V~0~), and the peak volume
+for each of the proteins leaving the column is known as the elution volume (V~e~) for each protein.
 
